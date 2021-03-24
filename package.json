@@ -1,0 +1,21 @@
+{
+  "name": "Atividade-2---PDM",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Iarlyson/Atividade-2---PDM",
+  "author": "daniel-dantas <daniel.dantas.ip19@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.2",
+    "nodemailer": "^6.5.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.7"
+  }
+}
