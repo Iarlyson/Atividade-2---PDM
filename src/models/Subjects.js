@@ -4,7 +4,9 @@ const SubjectsModel = model(
   "Subjects",
   new Schema({
     ID: {
-      type: Types.ObjectId,
+      type: String,
+      required: true,
+      unique: true,
     },
     name: {
       type: String,

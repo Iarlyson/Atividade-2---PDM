@@ -4,18 +4,16 @@ const AnswersModel = model(
   "Answers",
   new Schema({
     ID: {
-      type: Types.ObjectId,
+      type: String,
       required: true,
       unique: true,
     },
     user_id: {
-      type: Types.ObjectId,
-      ref: "Student",
+      type: String,
       required: true,
     },
     survey_id: {
-      type: Types.ObjectId,
-      ref: "Surveys",
+      type: String,
       required: true,
     },
     value: {
