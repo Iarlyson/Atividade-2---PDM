@@ -10,9 +10,9 @@ DISCIPLINA: PROGRAMAÇÃO PARA DISPOSITIVOS MÓVEIS.
 
 #### [Daniel Dantas](https://github.com/daniel-dantas)
 
-#### [Francisco Iarlyson Santana de Andrade](#)
+#### [Francisco Iarlyson Santana de Andrade](https://github.com/Iarlyson)
 
-#### [José Jonas Gomes da Silva Cavalcante](#)
+#### [José Jonas Gomes da Silva Cavalcante](https://github.com/Jonas-Gomes)
 
 ## Como rodar o projeto
 
