@@ -21,6 +21,38 @@ class StudentController {
       });
     }
   }
+
+  static async read(req, res) {
+    try {
+      const students = await StudentModel.find();
+
+      return res.status(200).json(students);
+    } catch (err) {
+      return res.status(500).json({
+        message: "Read failed!",
+        error: err,
+      });
+    }
+  }
+
+  static async get(req, res) {
+    try {
+      const student = await StudentModel.findOne({ _id: req.params.id });
+      if (student) {
+        return res.status(200).json(student);
+      } else {
+        return res.status(400).json({
+          message: "Get failed!",
+          error: new Error("Non-existent student"),
+        });
+      }
+    } catch (err) {
+      return res.status(500).json({
+        message: "Get Failed",
+        error: err,
+      });
+    }
+  }
 }
 
 module.exports = StudentController;
