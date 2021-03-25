@@ -5,6 +5,8 @@ const StudentModel = model(
   new Schema({
     ID: {
       type: Types.ObjectId,
+      required: true,
+      unique: true,
     },
     name: {
       type: String,
