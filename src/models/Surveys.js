@@ -5,6 +5,8 @@ const SurveysModel = model(
   new Schema({
     ID: {
       type: Types.ObjectId,
+      required: true,
+      unique: true,
     },
     title: {
       type: String,
