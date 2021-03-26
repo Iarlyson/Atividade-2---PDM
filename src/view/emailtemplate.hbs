@@ -1,0 +1,106 @@
+<style> 
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  transition: 0.3s;
+}
+.main {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+          background-color: #EAEDED;
+}
+.cumprimento{
+    position: absolute;
+    top: 10%;
+    font-size: 25px;
+}
+.titulo{
+    position: absolute;
+    top: 18%;
+    font-size: 25px;
+}
+.descricao{
+    position: relative;
+    top: 5%;
+    width: 750px;
+    height: 300px;
+    background-color: #fff;
+    box-shadow:  2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+}
+  .value{
+    padding:10px;
+    margin:5px;
+    background: #581845;
+    color: #fff;
+    border-radius: 2px;
+    border: solid 2px #581845;
+    width:15px;
+    text-align:center;
+    text-decoration: none;
+  }
+  .level{
+    position: relative;
+    top: 8%;
+    display:flex;
+    margin: 10px;
+    justify-content:space-between;
+    width:730px;
+    color: #581845;
+    font-size: 15px;
+  }
+  .answers{
+    position: relative;
+    top: 2%;
+    display:flex;
+    justify-content: space-between;
+  }
+</style>
+    <div class="main">
+        <label class="cumprimento"> Olá <strong>Fulano</strong>! Tudo bem?</label>
+      
+        <h3 class="titulo">Título</h3> <br>
+      
+        <div class="descricao">
+        <strong>Descrição</strong>
+        </div>
+
+        <div class="level">
+          <span>Pouco provável</span>
+          <span>Muito provável</span>
+        </div>
+      
+     
+        <div class="answers">
+          <a class="value" href="{{link}}/1?su={{id}}">1</a>
+          <a class="value" href="{{link}}/2?su={{id}}">2</a>
+          <a class="value" href="{{link}}/3?su={{id}}">3</a>
+          <a class="value" href="{{link}}/4?su={{id}}">4</a>
+          <a class="value" href="{{link}}/5?su={{id}}">5</a>
+          <a class="value" href="{{link}}/6?su={{id}}">6</a>
+          <a class="value" href="{{link}}/7?su={{id}}">7</a>
+          <a class="value" href="{{link}}/8?su={{id}}">8</a>
+          <a class="value" href="{{link}}/9?su={{id}}">9</a>
+          <a class="value" href="{{link}}/10?su={{id}}">10</a>
+        </div>
+      
+        <br><br>
+      
+        <strong>sua opinião é muito importante para nós</strong>
+        <h3>Equipe | <strong>IFPB</strong></h3>
+      
+      </div>
