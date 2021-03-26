@@ -3,9 +3,10 @@ const { json } = require("express");
 const MongoDB = require("./database/Mongo");
 const Router = require("./routes");
 class App {
-  main = express();
+  main;
 
   constructor({ uri_mongo }) {
+    this.main = express();
     // Connect MongoDB
     MongoDB.connect(uri_mongo).then(() => {
       console.log(`MongoDB runnig!`);
