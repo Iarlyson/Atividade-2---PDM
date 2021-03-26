@@ -1,20 +1,26 @@
 const { model, Schema, Types } = require("mongoose");
 
-const StudentsSubjectsModel = model(
-  "Student",
+const AnswersModel = model(
+  "Answers",
   new Schema({
     ID: {
       type: String,
+      required: true,
+      unique: true,
     },
     user_id: {
       type: String,
       required: true,
     },
-    subjects_id: {
+    survey_id: {
       type: String,
+      required: true,
+    },
+    value: {
+      type: Number,
       required: true,
     },
   })
 );
 
-module.exports = StudentsSubjectsModel;
+module.exports = AnswersModel;

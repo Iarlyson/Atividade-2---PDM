@@ -1,10 +1,11 @@
 const StudentModel = require("../models/Students");
-
+const { uuid } = require("uuidv4");
 class StudentController {
   static async create(req, res) {
     try {
       const student = req.body;
-      StudentModel.create(student)
+
+      StudentModel.create({ ...student, ID: uuid() })
         .then((result) => {
           return res.status(200).json(result);
         })
