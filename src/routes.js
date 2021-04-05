@@ -1,4 +1,4 @@
-const { Router } = require("express");
+const {Router} = require("express");
 const StudentController = require("./controllers/StudentController");
 const SurveyController = require("./controllers/SurveyController");
 const SubjectsController = require("./controllers/SubjectController");

@@ -1,7 +1,3 @@
-const { AppError } = require("../errors/AppError");
-const {
-  SurveysUsersRepository,
-} = require("./Repositories/SurveysUsersRepository");
 const AnswersModel = require("../models/Answers");
 
 class NPSController {
