@@ -4,7 +4,7 @@ class SurveyController {
   static async create(req, res) {
     try {
       const survey = req.body;
-      SurveyModel.create({ ...survey, ID: uuid() })
+      SurveyModel.create({ ...survey })
         .then((result) => {
           return res.status(200).json(result);
         })

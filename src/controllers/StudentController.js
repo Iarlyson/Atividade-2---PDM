@@ -5,7 +5,7 @@ class StudentController {
     try {
       const student = req.body;
 
-      StudentModel.create({ ...student, ID: uuid() })
+      StudentModel.create({ ...student })
         .then((result) => {
           return res.status(200).json(result);
         })

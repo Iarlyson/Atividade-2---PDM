@@ -3,18 +3,15 @@ const { model, Schema, Types } = require("mongoose");
 const AnswersModel = model(
   "Answers",
   new Schema({
-    ID: {
-      type: String,
-      required: true,
-      unique: true,
-    },
     user_id: {
-      type: String,
+      type: Types.ObjectId,
       required: true,
+      ref: "Student",
     },
     survey_id: {
-      type: String,
+      type: Types.ObjectId,
       required: true,
+      ref: "Surveys",
     },
     value: {
       type: Number,
