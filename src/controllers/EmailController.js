@@ -17,7 +17,7 @@ class EmailController {
       });
     }
 
-    const survey = await SurveysModel.findOne({ ID: survey_id });
+    const survey = await SurveysModel.findById(survey_id);
 
     if (!survey) {
       return res.status(400).json({
@@ -26,14 +26,56 @@ class EmailController {
       });
     }
 
-    const path = resolve(__dirname, "view", "emailTemplate.hbs");
+    const path = resolve(__dirname, "..", "view", "emailtemplate.hbs");
 
     const answer = await AnswersModel.findOne({
-      $where: { user_id: user.ID, value: null },
-    });
+      user_id: user._id,
+      value: null,
+    })
+      .populate("user_id")
+      .populate("survey_id")
+      .exec();
 
     if (answer) {
+      await EmailService.execute({
+        to: email,
+        subject: answer.title,
+        variables: {
+          name: user.name,
+          title: survey.title,
+          description: survey.description,
+          link: `${process.env.PROJECT_URL}/nps/`,
+        },
+        path,
+      });
+
+      return res.status(200).json({
+        message: "Send Mail!",
+      });
     }
+
+    const answerNew = await AnswersModel.create({
+      user_id: user._id,
+      survey_id: survey._id,
+      value: 0,
+    });
+
+    await EmailService.execute({
+      to: email,
+      subject: survey.title,
+      variables: {
+        id: answerNew._id,
+        name: user.name,
+        title: survey.title,
+        description: survey.description,
+        link: `${process.env.PROJECT_URL}/answers`,
+      },
+      path,
+    });
+
+    return res.status(200).json({
+      message: "Send Email!",
+    });
   }
 }
 

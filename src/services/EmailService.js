@@ -20,10 +20,10 @@ class EmaiLService {
     });
   }
 
-  async execute({ to, subject, varibles, path }) {
+  static async execute({ to, subject, variables, path }) {
     const template = fs.readFileSync(path);
     const mailTemplateParse = handlebars.compile(template);
-    const html = mailTemplateParse(varibles);
+    const html = mailTemplateParse(variables);
 
     const message = await this.client.sendMail({
       to,
