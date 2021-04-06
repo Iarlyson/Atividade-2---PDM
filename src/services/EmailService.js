@@ -1,36 +1,38 @@
 const nodemailer = require("nodemailer");
 const handlebars = require("handlebars");
+const { resolve } = require("path");
 
 const fs = require("fs");
 
 class EmaiLService {
-  client;
-
-  constructor() {
-    this.client = nodemailer.createTransport({
+  static async execute({ to, subject, variables }) {
+    const client = nodemailer.createTransport({
       host: process.env.MAILER_HOST,
       port: process.env.MAILER_PORT,
+      secure: false, // true for 465, false for other ports
       auth: {
-        user: process.env.MAILER_AUTH_USER,
-        pass: process.env.MAILER_AUTH_PASS,
-      },
-      tls: {
-        rejectUnauthorized: false,
+        user: process.env.MAILER_AUTH_USER, // generated ethereal user
+        pass: process.env.MAILER_AUTH_PASS, // generated ethereal password
       },
     });
-  }
 
-  static async execute({ to, subject, variables, path }) {
-    const template = fs.readFileSync(path);
+    const template = fs
+      .readFileSync(resolve(__dirname, "..", "view", "emailtemplate.hbs"))
+      .toString("utf8");
     const mailTemplateParse = handlebars.compile(template);
     const html = mailTemplateParse(variables);
 
-    const message = await this.client.sendMail({
-      to,
-      subject,
-      html,
-      from: "NPS <noreplay@ifpb.edu.br>",
-    });
+    try {
+      await client.sendMail({
+        to,
+        subject,
+        html,
+        from: "noreplay@ifpb.edu.br",
+      });
+    } catch (err) {
+      console.log("erro abaixo");
+      console.log(err);
+    }
   }
 }
 

@@ -26,8 +26,6 @@ class EmailController {
       });
     }
 
-    const path = resolve(__dirname, "..", "view", "emailtemplate.hbs");
-
     const answer = await AnswersModel.findOne({
       user_id: user._id,
       value: null,
@@ -46,7 +44,6 @@ class EmailController {
           description: survey.description,
           link: `${process.env.PROJECT_URL}/nps/`,
         },
-        path,
       });
 
       return res.status(200).json({
@@ -70,7 +67,6 @@ class EmailController {
         description: survey.description,
         link: `${process.env.PROJECT_URL}/answers`,
       },
-      path,
     });
 
     return res.status(200).json({
