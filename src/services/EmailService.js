@@ -9,10 +9,10 @@ class EmaiLService {
     const client = nodemailer.createTransport({
       host: process.env.MAILER_HOST,
       port: process.env.MAILER_PORT,
-      secure: false, // true for 465, false for other ports
+      secure: false,
       auth: {
-        user: process.env.MAILER_AUTH_USER, // generated ethereal user
-        pass: process.env.MAILER_AUTH_PASS, // generated ethereal password
+        user: process.env.MAILER_AUTH_USER,
+        pass: process.env.MAILER_AUTH_PASS,
       },
     });
 

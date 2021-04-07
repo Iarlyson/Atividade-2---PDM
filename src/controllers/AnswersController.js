@@ -2,8 +2,8 @@ const AnswersModel = require("../models/Answers");
 
 class AnswersController {
   static async get(req, res) {
-    const { value } = request.params;
-    const { an } = request.query;
+    const { value } = req.params;
+    const { an } = req.query;
 
     const answer = await AnswersModel.findById(an);
 
@@ -17,7 +17,7 @@ class AnswersController {
 
     await answer.updateOne(answer);
 
-    return response.status(200).json(answer);
+    return res.status(200).json(answer);
   }
 }
 
