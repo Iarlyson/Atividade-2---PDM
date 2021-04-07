@@ -9,7 +9,7 @@ class AnswersController {
 
     if (!answer) {
       return res.status(400).json({
-        message: "does not survey_user exists",
+        message: "Does not pesquisa exists for this discent",
       });
     }
 
