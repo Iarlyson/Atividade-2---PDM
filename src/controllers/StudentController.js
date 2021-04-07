@@ -43,12 +43,12 @@ class StudentController {
         return res.status(200).json(student);
       } else {
         return res.status(400).json({
-          message: "Get failed!",
-          error: new Error("Non-existent student"),
+          message: "Does not student exists!",
+          error: new Error("Does not student exists"),
         });
       }
     } catch (err) {
-      return res.status(500).json({
+      return res.status(400).json({
         message: "Get Failed",
         error: err,
       });
