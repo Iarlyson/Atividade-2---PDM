@@ -12,8 +12,6 @@ class NPSController {
       });
     }
 
-    // filtrando os detratores (0 - 6), promotores (9 - 10) e passivos (7 - 8)
-    // 1 2 3 4 5 6 7 8 9 10
 
     const detractors = answers.filter(
       (answer) => answer.value >= 0 && answer.value <= 6
@@ -28,7 +26,6 @@ class NPSController {
     ).length;
 
     const totalAnswers = answers.length;
-    // ((num de promotores - num de detratores) / (num de respondentes)) *100
     const resultNPS = ((promoters - detractors) / totalAnswers) * 100;
 
     return response.status(200).json({
