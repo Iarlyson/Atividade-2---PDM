@@ -12,6 +12,7 @@ const router = Router();
 router.post("/discentes", StudentController.create);
 router.get("/discentes", StudentController.read);
 router.get("/discentes/:id", StudentController.get);
+router.post("/discentes/auth", StudentController.auth);
 
 // Survey Routes
 router.post("/surveys", SurveyController.create);
