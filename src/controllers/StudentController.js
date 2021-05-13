@@ -8,18 +8,18 @@ class StudentController {
         try {
             const student = req.body;
 
-            const password = crypt.hash(student.password);
-
-            StudentModel.create({...student, password})
-                .then((result) => {
-                    return res.status(200).json(result);
-                })
-                .catch((err) => {
-                    return res.status(500).json({
-                        message: "Created Failed",
-                        error: err,
+            await crypt.hash(student.password, 1, (err, password) => {
+                StudentModel.create({...student, password})
+                    .then((result) => {
+                        return res.status(200).json(result);
+                    })
+                    .catch((err) => {
+                        return res.status(500).json({
+                            message: "Created Failed",
+                            error: err,
+                        });
                     });
-                });
+            });
         } catch (err) {
             console.error(err);
             return res.status(500).json({
