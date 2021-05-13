@@ -43,7 +43,7 @@ class SubjectsController {
 
             const subject = await SubjectsModel.findById(id);
 
-            if(!subject) return res.status(404).json({
+            if (!subject) return res.status(404).json({
                 message: "There is no subject with that id"
             });
 

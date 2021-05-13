@@ -16,6 +16,8 @@ router.post("/discentes/auth", StudentController.auth);
 
 // Survey Routes
 router.post("/surveys", SurveyController.create);
+router.get("/surveys", SurveyController.read);
+router.get("/surveys/:id", SurveyController.get);
 
 // Subject Routes
 router.post("/subjects", SubjectsController.create);
@@ -25,6 +27,7 @@ router.get("/subjects/:id", SubjectsController.get)
 router.get("/nps/:survey_id", NPSController.execute);
 
 router.get("/answers/:value", AnswersController.get);
+router.get("/answers", AnswersController.read);
 
 router.post("/sendEmail", EmailController.execute);
 
