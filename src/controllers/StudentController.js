@@ -82,7 +82,11 @@ class StudentController {
                     });
 
                     if (result) return res.status(200).json({
-                        token
+                        token,
+                        student: {
+                            name: student.name,
+                            email: student.email,
+                        }
                     });
                 });
 
