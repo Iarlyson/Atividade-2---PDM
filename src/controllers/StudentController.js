@@ -71,6 +71,11 @@ class StudentController {
             });
 
             crypt.compare(password, student.password, (err, result) => {
+
+                if(!result) return res.status(400).json({
+                    message: "Authentication error"
+                });
+
                 jwt.encode(process.env.JWT_KEY, student._id, (err, token) => {
                     if (err) return res.status(400).json({
                         message: "Authentication error"
